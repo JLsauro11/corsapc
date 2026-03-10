@@ -22,10 +22,10 @@ class HomeController extends Controller
         ]);
 
         $templateMap = [
-            'redlak' => 'redlak_pipe_template.jpg',
-            'dc8' => 'dc8_pipe_template.jpg'
+            'redlak' => 'redlak_pipe_template.png',
+            'dc8' => 'dc8_pipe_template.png'
         ];
-        $templateFile = $templateMap[$validated['pipeType']] ?? 'redlak_pipe_template.jpg';
+        $templateFile = $templateMap[$validated['pipeType']] ?? 'redlak_pipe_template.png';
         $jpgPath = public_path("assets/{$templateFile}");
 
         if (!file_exists($jpgPath)) {
@@ -47,7 +47,7 @@ class HomeController extends Controller
             ]);
 
             $data = $validated;
-            $templateFile = $data['pipeType'] === 'dc8' ? 'dc8_pipe_template.jpg' : 'redlak_pipe_template.jpg';
+            $templateFile = $data['pipeType'] === 'dc8' ? 'dc8_pipe_template.png' : 'redlak_pipe_template.png';
             $jpgPath = public_path("assets/{$templateFile}");
 
             if (!file_exists($jpgPath)) {
@@ -76,18 +76,18 @@ class HomeController extends Controller
             $pdf->AddPage();
 
             // ✅ IMAGE FILLS ENTIRE PAGE - ZERO WHITE!
-            $pdf->Image($jpgPath, 0, 0, $imgWidthMm, $imgHeightMm, 'JPG', '', '', false, 300, '', false, false, 0, false, false, false);
+            $pdf->Image($jpgPath, 0, 0, $imgWidthMm, $imgHeightMm, 'PNG', '', '', false, 300, '', false, false, 0, false, false, false);
 
-            $pdf->SetFont('helvetica', 'B', 9);
+            $pdf->SetFont('helvetica', 'B', 12);
             $pdf->SetTextColor(0, 0, 0);
 
             // Your text positions
-            $pdf->SetXY(65, 48.7); $pdf->Cell(0, 8, $data['vehicleModel'], 0, 0, 'L');
-            $pdf->SetXY(65, 56); $pdf->Cell(0, 8, $data['chassisNumber'], 0, 0, 'L');
-            $pdf->SetXY(65, 52.4); $pdf->Cell(0, 8, ucfirst($data['engineType']), 0, 0, 'L');
-            $pdf->SetXY(65, 59.5); $pdf->Cell(0, 8, $data['engineNumber'], 0, 0, 'L');
+            $pdf->SetXY(100, 87); $pdf->Cell(0, 8, $data['vehicleModel'], 0, 0, 'L');
+            $pdf->SetXY(100, 99); $pdf->Cell(0, 8, $data['chassisNumber'], 0, 0, 'L');
+            $pdf->SetXY(100, 93.5); $pdf->Cell(0, 8, ucfirst($data['engineType']), 0, 0, 'L');
+            $pdf->SetXY(100, 105); $pdf->Cell(0, 8, $data['engineNumber'], 0, 0, 'L');
 
-            $filename = 'RS8-LTO-Certificate-' . $data['chassisNumber'] . '-' . strtoupper($data['pipeType']) . '.pdf';
+            $filename = 'RS8-Certificate-Of-Road-Safety-And-Product-Compliance-' . $data['chassisNumber'] . '-' . strtoupper($data['pipeType']) . '.pdf';
 
             return response($pdf->Output('', 'S'))
                 ->header('Content-Type', 'application/pdf')
