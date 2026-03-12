@@ -64,11 +64,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
                 <div class="card-body p-5">
                     <form id="vehicleForm" method="POST" action="{{ route('vehicle.pdf.generate') }}">
                     @csrf
