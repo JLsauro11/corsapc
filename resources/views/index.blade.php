@@ -54,17 +54,19 @@
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10">
             <div class="card shadow-lg border-0">
-                <div class="card-header bg-primary-custom text-white px-3 py-1">
-
-                <div class="d-flex align-items-center">
-                        <!-- BIG Logo on LEFT - Vertically centered -->
-                        <img src="{{ asset('assets/rs8-logo.png') }}" alt="RS8 Logo" class="" style="height: 150px; width: auto;">
-                        <!-- Title CENTERED -->
-                        <div class="flex-grow-1 text-center mx-auto">
-                            <h1 class="mb-2 display-6" style="text-transform: uppercase; font-weight: bold">Certificate of Road Safety and Product Compliance</h1>
+                <div class="card-header bg-primary-custom text-white px-3 py-3 text-center">
+                    <div class="d-flex flex-column align-items-center w-100">
+                        <!-- Logo on TOP - Centered across all views -->
+                        <img src="{{ asset('assets/rs8-logo.png') }}" alt="RS8 Logo" class="img-fluid" style="height: 10rem; width: auto;">
+                        <!-- Title BELOW - Centered -->
+                        <div class="flex-grow-1">
+                            <h1 class="mb-2 display-6 fs-3 fw-bold text-uppercase">Certificate of Road Safety and Product Compliance</h1>
                         </div>
                     </div>
                 </div>
+
+
+
 
 
                 <div class="card-body p-5">

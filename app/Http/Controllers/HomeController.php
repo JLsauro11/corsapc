@@ -17,8 +17,8 @@ class HomeController extends Controller
             'vehicleModel' => 'required|string|max:255',
             'engineType' => 'required|string',
             'pipeType' => 'required|in:redlak,dc8',
-            'chassisNumber' => 'required|string|max:17',
-            'engineNumber' => 'required|string|max:12',
+            'chassisNumber' => 'required|string',
+            'engineNumber' => 'required|string',
         ]);
 
         $templateMap = [
@@ -42,8 +42,8 @@ class HomeController extends Controller
                 'vehicleModel' => 'required|string|max:255',
                 'engineType' => 'required|string',
                 'pipeType' => 'required|in:redlak,dc8',
-                'chassisNumber' => 'required|string|max:17',
-                'engineNumber' => 'required|string|max:12',
+                'chassisNumber' => 'required|string',
+                'engineNumber' => 'required|string',
             ]);
 
             $data = $validated;
